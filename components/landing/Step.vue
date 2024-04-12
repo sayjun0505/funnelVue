@@ -1,10 +1,12 @@
 <template>
-  <div class="max-w-[280px] xl:max-w-[363px] space-y-6 sm:space-y-3 text-center">
+  <div class="flex flex-row gap-2">
     <img :src="require(`~/assets/img/getting-started/${step.img}`)" class="max-w-[245px] mx-auto" alt="" />
-    <h3 class="text-xl text-neutral-800 font-semibold">{{ step.title }}</h3>
-    <p class="text-sm text-gray-700 leading-relaxed">
-      {{ step.description }}
-    </p>
+    <div class="flex flex-col ml-8 w-[250px] justify-center leading-10">
+      <p class="text-lg text-gray-700 leading-relaxed">
+        {{ step.description }}
+      </p>
+      <h3 class="text-xl mt-8 text-neutral-800 font-semibold">{{ step.title }}</h3>
+    </div>
   </div>
 </template>
 <script>

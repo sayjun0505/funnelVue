@@ -1,53 +1,25 @@
 <template>
-  <div class="w-full lg:w-1/3 mt-6 lg:mt-0 overflow-hidden space-y-6" v-bind="$attrs">
-    <div class="w-full flex items-center justify-normal">
-      <div v-for="data in datasets" :key="data.id" class="border-b border-gray-200">
-        <img :src="require(`~/assets/img/crypto-icon/${data.logo}`)" alt="" class="bg-blue-600 w-20 h-20 p-5 rounded-3xl mr-3"/>
+  <div class="w-full lg:w-1/3 lg:mt-0 overflow-hidden space-y-6" v-bind="$attrs">
+    <div class="w-full flex-col">
+      <div class="w-full rounded-full w-20 h-20 flex flex-start">
+        <div
+          v-for="data in datasets"
+          :key="data.id"
+          class="w-20 h-20 drop-shadow-2xl rounded-full relative overflow-hidden"
+        >
+          <img
+            :src="require(`~/assets/img/crypto-icon/${data.logo}`)"
+            alt=""
+            class="bg-blue-600 w-40 h-20 p-5 absolute top-0 left-0"
+          />
+        </div>
       </div>
-      <h1 class="text-2xl text-center">{{ title }}</h1>      
-      <!-- <button
-        href="#"
-        class="px-3 py-1 text-sm font-medium text-blue-500 flex items-center space-x-1 rounded-md hover:bg-blue-50 transition duration-300"
-      >
-        <span>More</span>
-        <ChevronRightIcon :size="16" />
-      </button> -->
     </div>
-    <div class="flex flex-col">
-      <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div class="px-2 sm:px-6 py-2 align-middle inline-block min-w-full overflow-hidden">
+    <div class="flex flex-col px-8">
+      <h1 class="text-bold text-3xl text-center">{{ title }}</h1>
+      <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="text-center px-2 sm:px-6 py-2 align-middle inline-block min-w-full overflow-hidden">
           <p>{{ description }}</p>
-          <!-- <table class="min-w-full">
-            <thead>
-              <tr>
-                <th class="text-left text-sm font-medium text-gray-500">Name</th>
-                <th class="text-left text-sm font-medium text-gray-500">Price</th>
-                <th class="hidden sm:block text-left text-sm font-medium text-gray-500">Chart</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="data in datasets" :key="data.id" class="border-b border-gray-200">
-                <td class="py-4 whitespace-nowrap">
-                  <div class="flex items-center space-x-2">
-                    <img :src="require(`~/assets/img/crypto-icon/${data.logo}`)" alt="" />
-                    <span>{{ data.name }}</span>
-                  </div>
-                </td>
-                <td class="py-4 whitespace-nowrap">
-                  <div class="flex items-center">
-                    <PlusThickIcon v-if="data.increase" :size="14" class="text-emerald-500" />
-                    <MinusThickIcon v-else :size="14" class="text-red-500" />
-                    <span>${{ data.price }}</span>
-                  </div>
-                </td>
-                <td class="hidden sm:block whitespace-nowrap">
-                  <div>
-                    <LineChart class="w-28 h-12 -mx-2" :datasets="data.data" :increase="data.increase" />
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table> -->
         </div>
       </div>
     </div>
